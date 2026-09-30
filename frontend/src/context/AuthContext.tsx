@@ -14,6 +14,7 @@ interface AuthContextType {
   logout: () => void;
   isAuthenticated: boolean;
   isAdmin: boolean;
+  loading: boolean;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -48,8 +49,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     localStorage.removeItem('adminUser');
   };
 
-  if (loading) return <div>Loading...</div>;
-
   return (
     <AuthContext.Provider 
       value={{ 
@@ -58,7 +57,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         login, 
         logout, 
         isAuthenticated: !!token,
-        isAdmin: user?.role === 'admin' 
+        isAdmin: user?.role === 'admin',
+        loading
       }}
     >
       {children}
