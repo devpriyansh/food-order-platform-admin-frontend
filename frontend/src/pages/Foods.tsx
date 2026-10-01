@@ -32,7 +32,7 @@ const Foods: React.FC = () => {
     try {
       const res = await api.get('/foods');
       setFoods(res.data);
-    } catch (err) {
+    } catch {
       toast.error('Failed to load foods');
     } finally {
       setLoading(false);

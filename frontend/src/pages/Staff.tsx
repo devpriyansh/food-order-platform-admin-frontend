@@ -27,7 +27,7 @@ const Staff: React.FC = () => {
     try {
       const res = await api.get('/staff');
       setStaffList(res.data);
-    } catch (err) {
+    } catch {
       toast.error('Failed to load staff');
     } finally {
       setLoading(false);

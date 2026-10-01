@@ -20,7 +20,7 @@ const Orders: React.FC = () => {
     try {
       const res = await api.get('/orders');
       setOrders(res.data);
-    } catch (err) {
+    } catch {
       toast.error('Failed to load orders');
     } finally {
       setLoading(false);

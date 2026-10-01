@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuth } from '../context/AuthContext';
-import { Activity, Users, ShoppingBag, TrendingUp } from 'lucide-react';
+import { Activity, ShoppingBag } from 'lucide-react';
 import api from '../utils/api';
 
 const StatCard = ({ title, value, icon: Icon, trend }: any) => (
